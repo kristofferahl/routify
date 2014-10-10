@@ -1,0 +1,18 @@
+; EditorConfig - http://editorconfig.org/
+
+; Top-most EditorConfig file
+root = true
+
+; Unix-style newlines
+[*]
+end_of_line = lf
+insert_final_newline = false
+
+; 4-column tab indentation
+[*.*]
+indent_style = tab
+indent_size = 4
+
+[package.json]
+indent_style = space
+indent_size = 2
