@@ -23,7 +23,13 @@
     "url": "https://github.com/kristofferahl/routify/issues"
   },
   "main": "routify.js",
+  "scripts": {
+    "stack-example": "npm install && node ./examples/stack/index.js"
+  },
   "dependencies": {
     "paramify": "^0.1.2"
+  },
+  "devDependencies": {
+    "stack": "^0.1.0"
   }
 }
