@@ -1,4 +1,4 @@
-# Routify
+# Routify [![NPM version](https://badge.fury.io/js/http-routify.png)](http://badge.fury.io/js/http-routify)
 
 Routify is a minimal http routing module for node.js.
 
