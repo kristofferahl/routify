@@ -119,6 +119,40 @@ describe('routify.js', () => {
     })
   })
 
+  context('Request with hash', () => {
+    context('Path spec without hash', () => {
+      it('/# should match', () => {
+        expect(run('get', '/')('GET', '/#abc').match).to.equal(true)
+      })
+
+      it('/#/ should match', () => {
+        expect(run('get', '/')('GET', '/#/abc').match).to.equal(true)
+      })
+
+      it('/#path/ should match', () => {
+        expect(run('get', '/')('GET', '/#path/').match).to.equal(true)
+      })
+
+      it('/path# should not match', () => {
+        expect(run('get', '/')('GET', '/path#').match).to.equal(false)
+      })
+
+      it('/path/# should not match', () => {
+        expect(run('get', '/')('GET', '/path/#').match).to.equal(false)
+      })
+    })
+
+    context('Path spec with hash', () => {
+      it('should never match', () => {
+        expect(run('get', '/#abc')('GET', '/#abc').match).to.equal(false)
+        expect(run('get', '/#/abc')('GET', '/#/abc').match).to.equal(false)
+        expect(run('get', '/#path/')('GET', '/#path/').match).to.equal(false)
+        expect(run('get', '/path#')('GET', '/path#').match).to.equal(false)
+        expect(run('get', '/path/#')('GET', '/path/#').match).to.equal(false)
+      })
+    })
+  })
+
   context('Request ending with slash', () => {
     it('should match path spec without slash', () => {
       expect(run('get', '/path')('GET', '/path/').match).to.equal(true)
