@@ -7,7 +7,7 @@ var routes = require('./routes/index.js')
 http
   .createServer(
     Stack(
-      router.get('/', routes.index),
+      router.all('/', routes.index),
       router.get('/signup', routes.signup.get),
       router.post('/signup', routes.signup.post),
       router.get('/documents/:id', routes.documents.get),
