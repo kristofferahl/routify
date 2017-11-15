@@ -3,7 +3,13 @@
   "description": "Routify is a minimal http routing module for node.js.",
   "version": "1.0.0",
   "license": "MIT",
-  "tags": ["http", "routing", "router", "middleware", "stack"],
+  "tags": [
+    "http",
+    "routing",
+    "router",
+    "middleware",
+    "stack"
+  ],
   "author": {
     "name": "Kristoffer Ahl",
     "email": "mail@77dynamite.com"
