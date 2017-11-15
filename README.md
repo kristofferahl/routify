@@ -14,26 +14,26 @@ If you're not using npm, simply copy the file `routify.js` to a directory of you
 
 ## Example
 
-	var http = require('http');
-	var Stack = require('stack');
-	var router = require('http-routify');
+    var http = require('http')
+    var Stack = require('stack')
+    var router = require('http-routify')
 
-	var routes = require('./routes/index.js')
+    var routes = require('./routes/index.js')
 
-	http.createServer(Stack(
-		router.all('/', routes.index),
-		router.get('/signup', routes.signup.get),
-		router.post('/signup', routes.signup.post),
-		router.get('/documents/:id', routes.documents.get),
-		router.get('/stuff/:userId', function (req, res, next) {
-			console.log('Accessed user stuff', req.params.userId);
-			res.end("Here's you're stuff - " + req.params.userId);
-		})
-	)).listen(1337);
+    http.createServer(Stack(
+        router.all('/', routes.index),
+        router.get('/signup', routes.signup.get),
+        router.post('/signup', routes.signup.post),
+        router.get('/documents/:id', routes.documents.get),
+        router.get('/stuff/:userId', function (req, res, next) {
+        console.log('Accessed user stuff', req.params.userId)
+        res.end("Here's you're stuff - " + req.params.userId)
+      })
+    )).listen(1337)
 
 ### Run example
 
-	npm start
+   npm start
 
 Open up a browser or command line and test the routes on http://localhost:1337
 
@@ -45,6 +45,10 @@ Each route handler needs to be of the form:
       // Either handle the request here using `req` and `res`
       // or call `next()` to pass control to next route
     }
+
+## Tests
+
+    npm test
 
 ### More about paramify
 
