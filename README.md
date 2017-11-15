@@ -33,7 +33,7 @@ If you're not using npm, simply copy the file `routify.js` to a directory of you
 
 ### Run example
 
-	npm run stack-example
+	npm start
 
 Open up a browser or command line and test the routes on http://localhost:1337
 

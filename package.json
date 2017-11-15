@@ -18,7 +18,9 @@
   },
   "main": "routify.js",
   "scripts": {
-    "stack-example": "npm install && node ./examples/stack/index.js"
+    "start": "npm install && node ./examples/stack/index.js",
+    "test": "mocha --reporter spec",
+    "test:watch": "mocha --reporter spec --watch"
   },
   "dependencies": {
     "paramify": "^0.1.2"
