@@ -1,3 +1,4 @@
+var url = require('url')
 var paramify = require('paramify')
 
 function router (method) {
@@ -7,7 +8,7 @@ function router (method) {
         return next()
       }
 
-      var match = paramify(req.url)
+      var match = paramify(url.parse(req.url).pathname)
       if (match(path)) {
         req.params = match.params
         return handler(req, res, next)

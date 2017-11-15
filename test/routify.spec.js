@@ -125,6 +125,12 @@ describe('routify.js', () => {
     })
   })
 
+  context('Request with querystring', () => {
+    it('should ignore querystring from match', () => {
+      expect(run('get', '/path')('GET', '/path?foo=bar').match).to.equal(true)
+    })
+  })
+
   context('Request with parameters', () => {
     it('should match path with parameter', () => {
       expect(run('get', '/path/:id')('GET', '/path/123').match).to.equal(true)
