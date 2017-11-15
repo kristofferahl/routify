@@ -3,7 +3,7 @@ var paramify = require('paramify')
 function router (method) {
   return function (path, handler) {
     return function (req, res, next) {
-      if (req.method !== method) {
+      if (req.method !== (method || req.method)) {
         return next()
       }
 
@@ -17,7 +17,9 @@ function router (method) {
   }
 }
 
-var routify = {}
+var routify = {
+  all: router()
+}
 var methods = ['get', 'post', 'put', 'delete']
 
 methods.forEach(function (method) {

@@ -9,6 +9,7 @@ const run = (routerMethod, routerPath) => {
     const handler = (req, res, next) => {
       hanlderCalled = true
     }
+
     const matcher = router[routerMethod](routerPath, handler)
     const req = {
       method: httpMethod,
@@ -97,6 +98,24 @@ describe('routify.js', () => {
 
     it('should match DELETE', () => {
       expect(run('delete', '/')('DELETE', '/').match).to.equal(true)
+    })
+  })
+
+  context('Matching all HTTP methods', () => {
+    it('should match GET', () => {
+      expect(run('all', '/')('GET', '/').match).to.equal(true)
+    })
+
+    it('should match POST', () => {
+      expect(run('all', '/')('POST', '/').match).to.equal(true)
+    })
+
+    it('should match PUT', () => {
+      expect(run('all', '/')('PUT', '/').match).to.equal(true)
+    })
+
+    it('should match DELETE', () => {
+      expect(run('all', '/')('DELETE', '/').match).to.equal(true)
     })
   })
 
