@@ -100,6 +100,12 @@ describe('routify.js', () => {
     })
   })
 
+  context('Request ending with slash', () => {
+    it('should match path spec without slash', () => {
+      expect(run('get', '/path')('GET', '/path/').match).to.equal(true)
+    })
+  })
+
   context('Request with parameters', () => {
     it('should match path with parameter', () => {
       expect(run('get', '/path/:id')('GET', '/path/123').match).to.equal(true)
