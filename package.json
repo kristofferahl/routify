@@ -3,13 +3,7 @@
   "description": "Routify is a minimal http routing module for node.js.",
   "version": "1.0.0",
   "license": "MIT",
-  "tags": [
-    "http",
-    "routing",
-    "router",
-    "middleware",
-    "stack"
-  ],
+  "tags": ["http", "routing", "router", "middleware", "stack"],
   "author": {
     "name": "Kristoffer Ahl",
     "email": "mail@77dynamite.com"
@@ -30,6 +24,14 @@
     "paramify": "^0.1.2"
   },
   "devDependencies": {
+    "chai": "^4.1.2",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "mocha": "^4.0.1",
+    "prettier-eslint": "^8.2.1",
     "stack": "^0.1.0"
   }
 }
