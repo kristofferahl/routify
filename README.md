@@ -15,17 +15,17 @@ If you're not using npm, simply copy the file `routify.js` to a directory of you
 ## Example
 
 	var http = require('http');
-	var stack = require('stack');
-	var route = require('http-routify');
+	var Stack = require('stack');
+	var router = require('http-routify');
 
 	var routes = require('./routes/index.js')
 
-	http.createServer(stack(
-		route('/', routes.index),
-		route.get('/signup', routes.signup.get),
-		route.post('/signup', routes.signup.post),
-		route.get('/documents/:id', routes.documents.get),
-		route.get('/stuff/:userId', function (req, res, next) {
+	http.createServer(Stack(
+		router.all('/', routes.index),
+		router.get('/signup', routes.signup.get),
+		router.post('/signup', routes.signup.post),
+		router.get('/documents/:id', routes.documents.get),
+		router.get('/stuff/:userId', function (req, res, next) {
 			console.log('Accessed user stuff', req.params.userId);
 			res.end("Here's you're stuff - " + req.params.userId);
 		})
@@ -33,7 +33,7 @@ If you're not using npm, simply copy the file `routify.js` to a directory of you
 
 ### Run example
 
-	npm run stack-example
+	npm start
 
 Open up a browser or command line and test the routes on http://localhost:1337
 
