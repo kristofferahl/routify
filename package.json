@@ -1,9 +1,15 @@
 {
   "name": "http-routify",
   "description": "Routify is a minimal http routing module for node.js.",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "license": "MIT",
-  "tags": ["http", "routing", "router", "middleware", "stack"],
+  "tags": [
+    "http",
+    "routing",
+    "router",
+    "middleware",
+    "stack"
+  ],
   "author": {
     "name": "Kristoffer Ahl",
     "email": "mail@77dynamite.com"
