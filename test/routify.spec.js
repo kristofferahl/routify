@@ -28,7 +28,7 @@ const run = (routerMethod, routerPath) => {
   }
 }
 
-describe('routify.js', () => {
+describe('routify', () => {
   context('HTTP GET /', () => {
     it('should match for GET', () => {
       expect(run('get', '/')('GET', '/').match).to.equal(true)
