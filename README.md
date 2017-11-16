@@ -10,8 +10,6 @@ If you use npm, then install the package via npm.
 
     npm install http-routify
 
-If you're not using npm, simply copy the file `routify.js` to a directory of your choice.
-
 ## Example
 
     var http = require('http')
@@ -50,14 +48,12 @@ Each route handler needs to be of the form:
 
     npm test
 
-### More about paramify
+## More
+
+### Paramify
 
 https://github.com/hij1nx/paramify
 
-### More about tiny-route
-
-https://github.com/dominictarr/tiny-route
-
-### More about stack
+### Stack
 
 https://github.com/creationix/stack
