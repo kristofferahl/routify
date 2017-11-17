@@ -1,20 +1,34 @@
 var http = require('http')
 var Stack = require('stack')
 var router = require('./../../routify.js')
+var middleware = require('./middleware.js')
 
-var routes = require('./routes/index.js')
+router.use(middleware.logging)
+router.use(middleware.correlationId)
 
 http
   .createServer(
     Stack(
-      router.all('/', routes.index),
-      router.get('/signup', routes.signup.get),
-      router.post('/signup', routes.signup.post),
-      router.get('/documents/:id', routes.documents.get),
-      router.get('/stuff/:userId', function (req, res, next) {
-        console.log('Accessed user stuff', req.params.userId)
-        res.end("Here's you're stuff - " + req.params.userId)
+      router.all('/', (req, res) => res.end('Root')),
+
+      router.post('/blog/posts/', async (req, res) => {
+        const db = () => new Promise(resolve => setTimeout(resolve, 1000))
+        await db({ slug: 'async-is-cool' })
+        res.statusCode = 201
+        res.end('Created blog post')
+      }),
+
+      router.get('/blog/posts/:slug', (req, res) => {
+        res.statusCode = 200
+        res.end(`Found post with slug: ${req.params.slug}`)
+      }),
+
+      router.all('/*', (req, res) => {
+        res.statusCode = 404
+        res.end(`HTTP Not Found - ${req.method} ${req.url}`)
       })
     )
   )
-  .listen(1337)
+  .listen(1337, () => {
+    console.log('Server started (http://localhost:1337)')
+  })
