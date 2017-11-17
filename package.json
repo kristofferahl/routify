@@ -25,8 +25,8 @@
   "main": "routify.js",
   "scripts": {
     "start": "npm install && node ./examples/stack/index.js",
-    "test": "mocha --reporter spec",
-    "test:watch": "mocha --reporter spec --watch"
+    "test": "mocha --reporter spec --slow 2",
+    "test:watch": "mocha --reporter spec --watch --slow 2"
   },
   "dependencies": {
     "paramify": "^0.1.2"
